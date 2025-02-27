@@ -1,0 +1,54 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --main-color:#0aad0a;
+  --light-color:#f0f3f2;
+  --font-family: 'Encode Sans Expanded', sans-serif;
+  --rating-color:#ffc908;
+}
+body{
+  font-family: var(--font-family);
+}
+.active{
+  color: var(--main-color);
+}
+.btn{
+ @apply bg-active hover:bg-green-600 text-white p-2 rounded w-full
+}
+.loader {
+  width: 64px;
+  height: 48px;
+  position: relative;
+  animation: split 1s ease-in infinite alternate;
+}
+.loader::before , .loader::after {
+  content: '';
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  transform: translateX(-10px);
+  background:var(--main-color);
+  opacity: 0.75;
+  backdrop-filter: blur(20px);
+}
+
+.loader::after {
+  left: auto;
+  right: 0;
+  background: #FFF;
+  transform: translateX(10px);
+}
+
+@keyframes split {
+ 0% , 25%{ width: 64px }
+ 100%{ width: 148px }
+}
+  
